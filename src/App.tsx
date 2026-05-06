@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import posthog from 'posthog-js'
 import './App.css'
 
 function App() {
@@ -32,11 +33,9 @@ function App() {
     if (facts.length === 0) return
 
     // Track custom event in PostHog
-    if ((window as any).posthog) {
-      (window as any).posthog.capture('next_fact_clicked', {
-        current_fact: facts[currentFactIndex || 0]
-      })
-    }
+    posthog.capture('next_fact_clicked', {
+      current_fact: facts[currentFactIndex || 0]
+    })
 
     let nextIndex
     do {
