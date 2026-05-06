@@ -30,6 +30,14 @@ function App() {
 
   const nextFact = () => {
     if (facts.length === 0) return
+
+    // Track custom event in PostHog
+    if ((window as any).posthog) {
+      (window as any).posthog.capture('next_fact_clicked', {
+        current_fact: facts[currentFactIndex || 0]
+      })
+    }
+
     let nextIndex
     do {
       nextIndex = Math.floor(Math.random() * facts.length)
