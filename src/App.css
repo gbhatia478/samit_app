@@ -1,0 +1,129 @@
+:root {
+  --primary: #6200ee;
+  --secondary: #03dac6;
+  --accent: #fbc02d;
+  --bg: #121212;
+  --text: #ffffff;
+  --card-bg: #1e1e1e;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0px var(--primary);
+}
+
+.subtitle {
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.fact-card {
+  background-color: var(--card-bg);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 2px var(--primary);
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.fact-card:hover {
+  transform: translateY(-5px);
+}
+
+.fact-text {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-button {
+  background-color: var(--accent);
+  color: #000;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 var(--primary);
+}
+
+.next-button:hover {
+  background-color: #fff176;
+  transform: scale(1.05);
+}
+
+.next-button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+footer {
+  margin-top: 2rem;
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+.loader {
+  font-size: 1.5rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .fact-card {
+    padding: 2rem;
+  }
+  .fact-text {
+    font-size: 1.4rem;
+  }
+}
